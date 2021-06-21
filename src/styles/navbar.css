@@ -1,0 +1,15 @@
+.root {
+    flexGrow: 1;
+}
+.menuButton {
+    marginRight: 2px;
+}
+.toolbar {
+    minHeight: 20;
+    alignItems: flex-start;
+
+}
+.title {
+    flexGrow: 1;
+    alignSelf: flex-end;
+}

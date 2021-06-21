@@ -5,42 +5,50 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import { makeStyles } from "@material-ui/core/styles";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Divider from '@material-ui/core/Divider';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import DateRangeIcon from '@material-ui/icons/DateRange';
+import '../styles/article.css';
 
-const useStyles = makeStyles({
-    card: {
-        maxWidth: 345,
-        boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
-        backgroundColor: "#fafafa",
-        height: 600
-    },
-    media: {
-        height: 300
-    },
-});
 
 const Article = ({ article }) => {
-    const classes = useStyles();
     return (
-        <div className={classes.root} >
+        <div className="root" >
             {article && (
-                <Card className={classes.card} id={article._id}>
 
-                    <CardContent>
-                        <Typography color="primary" variant="h6">
+                <List id={article._id}>
+                    <ListItem alignItems="flex-start" >
+                        <ListItemAvatar>
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                        </ListItemAvatar>
+                        <ListItemText
+                            primary={article.abstract.substring(0, 50).concat('...')}
+                            secondary={
+                                <React.Fragment>
+                                    <Typography
+                                        component="span"
+                                        variant="body2"
+                                        className="inline"
+                                        color="textPrimary"
+                                    >
+                                        {article.byline}
+                                    </Typography>
+                                    <div>
+                                        <DateRangeIcon/>{article.published_date}
+                                    </div>
+                                </React.Fragment>
 
-                        </Typography>
-                        <Typography color="textSecondary" variant="subtitle2">
-                            {article.abstract}
-                        </Typography>
-                        <Typography variant="body2" component="p">
-                            {article.byline}
-                        </Typography>
-                        <Typography variant="body2" component="p">
-                            {article.published_date}
-                        </Typography>
-                    </CardContent>
-                </Card >
+                            }
+                        />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+                </List>
             )}
+
         </div>
     );
 };

@@ -3,45 +3,26 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import '../styles/navbar.css'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
-    toolbar: {
-        minHeight: 20,
-        alignItems: 'flex-start',
-        paddingTop: theme.spacing(1),
-        paddingBottom: theme.spacing(2),
-    },
-    title: {
-        flexGrow: 1,
-        alignSelf: 'flex-end',
-    },
-}));
 
 export default function Navbar() {
-    const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <div className='root'>
             <AppBar position="static">
-                <Toolbar className={classes.toolbar}>
+                <Toolbar className='toolbar'>
                     <IconButton
                         edge="start"
-                        className={classes.menuButton}
+                        className='menuButton'
                         color="inherit"
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography className={classes.title} variant="h5" noWrap>
+                    <Typography className='title' variant="h5" noWrap>
                         NY Times Post Popular
                     </Typography>
                     <IconButton aria-label="search" color="inherit">
